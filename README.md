@@ -38,7 +38,7 @@ In appsettings.json, update with your actual MySQL credentials:
   "DefaultConnection": "server=localhost;user=root;password=YOUR_PASSWORD;database=fitness_db;"
 }
 
-3. Apply Migrations:
+3. Apply Migrations:\n
 Run these commands to create the database tables:
 dotnet ef migrations add InitialCreate
 dotnet ef database update
