@@ -1,0 +1,26 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+<link rel="stylesheet" href="~/css/form.css" />
+
+<div class="form-container">
+    <h2>Login</h2>
+    <form method="post" asp-page-handler="Post">
+        <label asp-for="Username"></label>
+        <input asp-for="Username" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+
+        <label asp-for="Password"></label>
+        <input type="password" asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/Register">Register here</a></p>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+            <h1 class="display-4 fw-bold">Welcome to FitTrack</h1>
+            <p class="lead">Track your workouts, monitor your progress, and stay motivated on your fitness journey.</p>
+            <div class="mt-4">
+                <a class="btn btn-primary btn-lg me-2" href="/Register">Get Started</a>
+                <a class="btn btn-outline-secondary btn-lg" href="/Login">Login</a>
+            </div>
+        </div>
+        <div class="col-md-6 text-center mt-4 mt-md-0">
+            <img src="~/fitness_dashboard.png" class="img-fluid rounded" alt="Fitness Dashboard" />
+        </div>
+    </div>
+</div>
+
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Why Use FitTrack?</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="bi bi-bar-chart-line fs-1 text-primary"></i>
+                <h5 class="mt-3">Track Progress</h5>
+                <p>Log your weight, workouts, and fitness goals to visualize your improvement over time.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-heart-pulse fs-1 text-danger"></i>
+                <h5 class="mt-3">Personal Health</h5>
+                <p>Maintain a healthy lifestyle by monitoring key health indicators and habits daily.</p>
+            </div>
+            <div class="col-md-4">
+                <i class="bi bi-calendar-check fs-1 text-success"></i>
+                <h5 class="mt-3">Stay Consistent</h5>
+                <p>Use reminders and schedules to keep up with your training and meal plans.</p>
+            </div>
+        </div>
+    </div>
+</section>

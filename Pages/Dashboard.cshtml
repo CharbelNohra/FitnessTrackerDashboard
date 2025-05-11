@@ -1,0 +1,91 @@
+﻿@page
+@model DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<link rel="stylesheet" href="~/css/dashboard.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+@if (Model.ShowModal)
+{
+    <div class="modal">
+        <div class="modal-content">
+            <h2>Weekly Fitness Entry</h2>
+            <form method="post">
+                <label>Weight (kg)</label>
+                <input asp-for="NewEntry.WeightKg" type="number" step="0.1" required />
+                <label>Calories</label>
+                <input asp-for="NewEntry.Calories" type="number" required />
+                <button class="modalSub" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+}
+
+<h2>Fitness Progress</h2>
+
+<div class="charts-container">
+    <div class="chart-container">
+        <canvas id="weightChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <canvas id="caloriesChart"></canvas>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const entries = @Html.Raw(Json.Serialize(Model.Entries));
+        const labels = entries.map(e => new Date(e.date).toLocaleDateString());
+        const weightData = entries.map(e => e.weightKg);
+        const caloriesData = entries.map(e => e.calories);
+
+        // Weight Chart - Bar Chart
+        new Chart(document.getElementById('weightChart'), {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Weight (kg)',
+                    data: weightData,
+                    backgroundColor: 'rgba(0, 123, 255, 0.6)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Calories Chart - Pie Chart
+        new Chart(document.getElementById('caloriesChart'), {
+            type: 'pie',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Calories',
+                    data: caloriesData,
+                    backgroundColor: ['#FF5733', '#33FF57', '#337AFF', '#FF33A8', '#FFBB33'],
+                    borderColor: '#fff',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+    </script>
+}
