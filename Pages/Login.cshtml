@@ -5,15 +5,25 @@
 }
 <link rel="stylesheet" href="~/css/form.css" />
 
+@if (!ViewData.ModelState.IsValid)
+{
+    <div style="color:red; font-weight:bold;">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div>@error.ErrorMessage</div>
+        }
+    </div>
+}
+
 <div class="form-container">
     <h2>Login</h2>
     <form method="post" asp-page-handler="Post">
         <label asp-for="Username"></label>
-        <input asp-for="Username" />
+        <input asp-for="Username" required/>
         <span asp-validation-for="Username" class="text-danger"></span>
 
         <label asp-for="Password"></label>
-        <input type="password" asp-for="Password" />
+        <input type="password" asp-for="Password" required/>
         <span asp-validation-for="Password" class="text-danger"></span>
 
         <button type="submit">Login</button>

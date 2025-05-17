@@ -9,15 +9,15 @@
     <h2>Register</h2>
     <form method="post" asp-page-handler="Post">
         <label asp-for="Username"></label>
-        <input asp-for="Username" />
+        <input asp-for="Username" required/>
         <span asp-validation-for="Username" class="text-danger"></span>
 
         <label asp-for="Password"></label>
-        <input type="password" asp-for="Password" />
+        <input type="password" asp-for="Password" required/>
         <span asp-validation-for="Password" class="text-danger"></span>
 
         <label asp-for="ConfirmPassword"></label>
-        <input type="password" asp-for="ConfirmPassword" />
+        <input type="password" asp-for="ConfirmPassword" required/>
         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
 
         <button type="submit">Register</button>
