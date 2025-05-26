@@ -22,14 +22,17 @@
     </div>
 }
 
-<h2>Fitness Progress</h2>
+<h1>Fitness Progress</h1>
 
 <div class="charts-container">
     <div class="chart-container">
         <canvas id="weightChart"></canvas>
     </div>
-    <div class="chart-container">
-        <canvas id="caloriesChart"></canvas>
+    <div>
+        <h4>Calories burned per week</h4>
+        <div class="chart-container">
+            <canvas id="caloriesChart"></canvas>
+        </div>
     </div>
 </div>
 
@@ -81,9 +84,7 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: {
-                        position: 'top',
-                    }
+                    legend: false
                 }
             }
         });
