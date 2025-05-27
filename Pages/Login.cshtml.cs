@@ -20,7 +20,7 @@ public class LoginModel : PageModel
         User? user = _userService.Authenticate(Username, Password);
         if (user == null)
         {
-            ModelState.AddModelError(string.Empty, "Invalid login.");
+            ModelState.AddModelError(string.Empty, "Invalid credentials.");
             return Page();
         }
 

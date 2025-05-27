@@ -15,14 +15,14 @@
         <label asp-for="Password"></label>
         <input type="password" asp-for="Password" required/>
         <span asp-validation-for="Password" class="text-danger"></span>
-
+        <br />
         <label asp-for="ConfirmPassword"></label>
         <input type="password" asp-for="ConfirmPassword" required/>
         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
 
         <button type="submit">Register</button>
     </form>
-    <p>Already have an account? <a href="/Login">Login here</a></p>
+    <p>Already have an account? <em><a href="/Login">Login here</a></em></p>
 </div>
 
 @section Scripts {

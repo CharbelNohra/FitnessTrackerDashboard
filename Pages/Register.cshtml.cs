@@ -13,8 +13,8 @@ public class RegisterModel : PageModel
     public string Username { get; set; }
 
     [BindProperty, Required, DataType(DataType.Password)]
-    [StringLength(100, MinimumLength = 6)]
-    [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$", ErrorMessage = "Password must include uppercase, lowercase, and a number.")]
+    [StringLength(20, MinimumLength = 8)]
+    [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$", ErrorMessage = "Password must be at least 8 characters lond including uppercases, lowercases, numbers and symbols.")]
     public string Password { get; set; }
 
     [BindProperty, Required, DataType(DataType.Password)]

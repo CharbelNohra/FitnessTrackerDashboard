@@ -17,6 +17,16 @@
     margin-bottom: 20px;
 }
 
+/*a {
+    text-decoration: none !important;
+    color: black !important;
+    font-weight: 600 !important;
+}
+
+a:hover {
+    color: gray !important;
+}
+*/
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px;
